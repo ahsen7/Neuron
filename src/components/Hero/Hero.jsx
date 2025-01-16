@@ -2,10 +2,13 @@ import Section from "../common/Section"
 import curve from "../../assets/hero/curve.png"
 import Button from "../Button"
 import { heroBackground, robot } from "../../assets"
-import { BackgroundCircles, Gradient } from '../design/Hero'
+import { BackgroundCircles, BottomLine, Gradient } from '../design/Hero'
 import { heroIcons } from "../../constants"
 import { ScrollParallax } from "react-just-parallax"
 import { useRef } from "react"
+import Generating from "../common/Generating"
+import Notification from "../common/Notification"
+import CompanyLogo from "../common/CompanyLogo"
 
 
 const Hero = () => {
@@ -57,6 +60,18 @@ const Hero = () => {
                   height={490}
                   alt="AI Robot"
                 />
+
+                <ScrollParallax isAbsolutelyPositioned>
+                  <Generating
+                    className="absolute left-4
+                 right-4 bottom-5 md:left-1/2
+                 md:right-auto md:bottom-8 md:w-[31rem]
+                 md:-translate-x-1/2"
+                  />
+                </ScrollParallax>
+
+
+
                 <ScrollParallax isAbsolutelyPositioned>
                   <ul className="hidden absolute -left-[5.5rem] bottom-[7.5rem] px-1 py-1
                  bg-n-9/40 backdrop-blur 
@@ -67,6 +82,15 @@ const Hero = () => {
                       </li>
                     ))}
                   </ul>
+                </ScrollParallax>
+
+                <ScrollParallax isAbsolutelyPositioned>
+                  <Notification
+                    className=" hidden absolute -right-[5.5rem] 
+                  bottom-[11rem] w-[18rem]
+                  xl:flex"
+                    title="Code Generation"
+                  />
                 </ScrollParallax>
               </div>
             </div>
@@ -83,7 +107,11 @@ const Hero = () => {
           </div>
           <BackgroundCircles />
         </div>
+        <CompanyLogo
+          className="hidden relative z-10 mt-20 lg:block"
+        />
       </div>
+      <BottomLine />
     </Section>
   )
 }
